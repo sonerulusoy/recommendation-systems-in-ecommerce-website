@@ -93,7 +93,7 @@ const Summary: React.FC<SummaryProps> = ({ orders, products, users }) => {
               >
                 <div className="text-xl md:text-4xl font-bold">
                   {summaryData[key].label === "Total Sale" ? (
-                    <>{formatPrice(summaryData[key].digit)}</>
+                    <>{formatPrice(summaryData[key].digit/100)}</>
                   ) : (
                     <>{formatNumber(summaryData[key].digit)}</>
                   )}

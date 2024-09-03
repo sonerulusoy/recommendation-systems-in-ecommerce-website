@@ -28,7 +28,7 @@ export default async function getGraphData() {
 
     while (currentDate <= endDate) {
       const day = currentDate.format("dddd");
-      console.log("day<<<", day, currentDate);
+      // console.log("day<<<", day, currentDate);
 
       aggregatedData[day] = {
         day,
