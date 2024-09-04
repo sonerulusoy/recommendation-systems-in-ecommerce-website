@@ -1,7 +1,8 @@
-import  getCurrentUser  from "@/actions/getCurrentUser";
+import getCurrentUser from "@/actions/getCurrentUser";
 import Order from "@/app/order/[orderId]/page";
 import { Review } from "@prisma/client"; // emin değilim
 import { NextResponse } from "next/server";
+import prisma from "@/libs/prismadb";
 
 export async function POST(request: Request) {
   const currentUser = await getCurrentUser();
@@ -22,7 +23,7 @@ export async function POST(request: Request) {
 
   const userReview = product?.reviews.find((review: Review) => {
     return review.userId === currentUser.id;
-  }); 
+  });
 
   if (userReview || !deliveredOrder) {
     return NextResponse.error();
